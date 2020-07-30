@@ -11,6 +11,7 @@
 	<body onload='init()'>
 		<script type="text/javascript">
 		async function init() {
+			document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
 			//Width and height
 			var w = 500;
 			var h = 300;
