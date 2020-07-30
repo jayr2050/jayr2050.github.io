@@ -117,8 +117,8 @@
 					 .style("fill", "ccc");
 
 
-			}).catch(function(){
-				console.log("error loading oceans json");
+			}).catch(function(err){
+				console.log("error loading oceans json",err.name);
 			});
 
 			d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atlantic_storms_2005only.csv").then(function(data) {
