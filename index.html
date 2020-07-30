@@ -13,11 +13,12 @@
 		async function init() {
 			document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
 			//Width and height
-			var w = 500;
-			var h = 300;
+			var w = 800;
+			var h = 500;
 
 			//Define map projection
-			var projection = d3.geoAlbersUsa()
+			//var projection = d3.geoAlbersUsa()
+			var projection = d3.geoAlbers()
 								   .translate([w/2, h/2])
 								   .scale([500]);
 
