@@ -49,7 +49,7 @@
 
 	      console.log("after us-ag-productivity.csv");
 				//Load in GeoJSON data
-				d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-states.json", function(json) {
+				d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-states.json").then(function(json) {
 
 					//Merge the ag. data and GeoJSON
 					//Loop through once for each ag. data value
@@ -97,6 +97,8 @@
 					   		}
 					   });
 
+				}).catch(function(){
+					console.log("error loading GeoJSON")
 				});
 
 			}).catch(function(){
