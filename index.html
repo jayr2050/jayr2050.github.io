@@ -154,6 +154,22 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/oc
 	console.log("error loading oceans json",err.name);
 });
 
+d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/countries_oceans.geojson").then(function(json) {
+
+	//Bind data and create one path per GeoJSON feature
+	svg.selectAll("path")
+		 .data(json.features)
+		 .enter()
+		 .append("path")
+		 .attr("d", path)
+		 .style("fill", "yellow");
+
+
+}).catch(function(err){
+	console.log("error loading countries_oceans json",err.name);
+});
+
+
 d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-states.json").then(function(json) {
 	svg.selectAll("path")
 		 .data(json.features)
