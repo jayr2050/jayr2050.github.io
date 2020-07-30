@@ -37,7 +37,6 @@
 						.attr("width", w)
 						.attr("height", h);
 
-/*
 			//Load in agriculture data
 			//d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv", function(data) {
 			d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv").then(function(data) {
@@ -150,22 +149,6 @@
 					console.log("error loading atlantic_storms_2005only",err.name);
 				});
 }
-*/
-d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/oceans.json").then(function(data) {
-
-	//Bind data and create one path per GeoJSON feature
-	svg.selectAll("path")
-		 //.data(json.features)
-		 .enter()
-		 .append("path")
-		 //.attr("d", path)
-		 .style("fill", "blue");
-
-
-}).catch(function(err){
-	console.log("error loading oceans json",err.name);
-});
-
 		</script>
 	</body>
 </html>
