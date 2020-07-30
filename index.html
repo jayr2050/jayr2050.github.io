@@ -130,10 +130,10 @@
 			       .enter()
 			       .append("circle")
 			       .attr("cx", function(d) {
-			           return projection([d.longitude, d.latitude])[0];
+			           return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[0];
 			       })
 			       .attr("cy", function(d) {
-			           return projection([d.longitude, d.latitude])[1];
+			           return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[1];
 			       })
 			       .attr("r", 5)
 			       .style("fill", "yellow")
