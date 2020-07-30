@@ -8,7 +8,8 @@
 			/* No style rules here yet */
 		</style>
 	</head>
-	<body>
+	<body onload='init()'>
+		async function init() {
 		<script type="text/javascript">
 
 			//Width and height
@@ -46,6 +47,7 @@
 					d3.max(data, function(d) { return d.value; })
 				]);
 
+	      console.log("after us-ag-productivity.csv");
 				//Load in GeoJSON data
 				d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-states.json", function(json) {
 
@@ -100,5 +102,6 @@
 			});
 
 		</script>
+	}
 	</body>
 </html>
