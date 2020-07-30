@@ -38,7 +38,8 @@
 						.attr("height", h);
 
 			//Load in agriculture data
-			d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv", function(data) {
+			//d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv", function(data) {
+			d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv").then(function(data) {
 			//d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv", function(data) {
 
 				//Set input domain for color scale
@@ -99,7 +100,9 @@
 
 				});
 
-			});
+			}).catch(function(){
+      console.log("error loading us-ag csv");
+})1;
 
 		</script>
 	}
