@@ -171,6 +171,7 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/co
 
 		 	//Set input domain for color scale
 		     console.log("before selectAll circle");
+				 console.log(projection([parseFloat(d[0].longitude), parseFloat(data[0].latitude)]);
 		 		console.log(data);
 		     svg.selectAll("circle")
 		 			 //.data(data)
@@ -193,6 +194,7 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/co
 		 						//return d.pop + ": Pop. " + formatAsThousands(d.population);
 		 				//		return d.name; });
 		 				;
+						console.log("directly after svg selectAll circle...");
 		 			}).catch(function(err){
 		 		console.log("error loading atlantic_storms_2005only",err.name);
 		 	});
