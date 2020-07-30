@@ -108,20 +108,6 @@
       console.log("error loading us-ag csv");
 });
 
-			d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/oceans.json").then(function(data) {
-
-				//Bind data and create one path per GeoJSON feature
-				svg.selectAll("path")
-					 //.data(json.features)
-					 .enter()
-					 .append("path")
-					 //.attr("d", path)
-					 .style("fill", "blue");
-
-
-			}).catch(function(err){
-				console.log("error loading oceans json",err.name);
-			});
 
 			d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atlantic_storms_2005only.csv").then(function(data) {
 
@@ -166,6 +152,19 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/oc
 }).catch(function(err){
 	console.log("error loading oceans json",err.name);
 });
+
+d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-states.json").then(function(json) {
+	svg.selectAll("path")
+		 .data(json.features)
+		 .enter()
+		 .append("path")
+		 .attr("d", path)
+		 .style("fill", "green");
+}).catch(function(err) {
+	console.log("error loading us-states json",err.name)
+});
+
+//end of init before end of script
 }
 		</script>
 	</body>
