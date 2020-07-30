@@ -204,13 +204,14 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us
 d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atlantic_storms_2005only.csv").then(function(data) {
 
 	//Set input domain for color scale
-
+    console.log("before selectAll circle");
+		console.log(data);
     svg.selectAll("circle")
 			 //.data(data)
 			 .enter()
 			 .append("circle")
 			 .attr("cx", function(d) {
-				   console.log("lon= ",parseFloat(d.longitude));
+				   console.log("lon= ",d.longitude);
 					 return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[0];
 			 })
 			 .attr("cy", function(d) {
@@ -229,6 +230,7 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atl
 			}).catch(function(err){
 		console.log("error loading atlantic_storms_2005only",err.name);
 	});
+	console.log("after selectAll circle")
 
 //end of init before end of script
 }
