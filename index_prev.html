@@ -106,21 +106,6 @@
       console.log("error loading us-ag csv");
 });
 
-			d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/oceans.json").then(function(data) {
-
-				//Bind data and create one path per GeoJSON feature
-				svg.selectAll("path")
-					 .data(json.features)
-					 .enter()
-					 .append("path")
-					 .attr("d", path)
-					 .style("fill", "ccc");
-
-
-			}).catch(function(){
-				console.log("error loading oceans json");
-			});
-
 			d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atlantic_storms_2005only.csv").then(function(data) {
 
 				//Set input domain for color scale
