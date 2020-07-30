@@ -166,6 +166,37 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/co
 		 .attr("stroke-width",2)
 		 .style("fill", "green");
 
+     console.log("in load countries_oceans before load atlantic_storms_2005only...")
+		 d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atlantic_storms_2005only.csv").then(function(data) {
+
+		 	//Set input domain for color scale
+		     console.log("before selectAll circle");
+		 		console.log(data);
+		     svg.selectAll("circle")
+		 			 //.data(data)
+		 			 .enter()
+		 			 .append("circle")
+		 			 .attr("cx", function(d) {
+		 				   console.log("lon= ",d.longitude);
+		 					 return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[0];
+		 			 })
+		 			 .attr("cy", function(d) {
+		 					 return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[1];
+		 			 })
+		 			 .attr("r", 10)
+		 			 .style("fill", "yellow")
+		 			 .style("stroke", "gray")
+		 			 .style("stroke-width", 0.25)
+		 			 .style("opacity", 0.75)
+		 			 //.append("title")			//Simple tooltip
+		 			 //.text(function(d) {
+		 						//return d.pop + ": Pop. " + formatAsThousands(d.population);
+		 				//		return d.name; });
+		 				;
+		 			}).catch(function(err){
+		 		console.log("error loading atlantic_storms_2005only",err.name);
+		 	});
+		 	console.log("after selectAll circle");
 
 }).catch(function(err){
 	console.log("error loading countries_oceans json",err.name);
@@ -201,36 +232,7 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us
 });
 */
 
-d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atlantic_storms_2005only.csv").then(function(data) {
 
-	//Set input domain for color scale
-    console.log("before selectAll circle");
-		console.log(data);
-    svg.selectAll("circle")
-			 //.data(data)
-			 .enter()
-			 .append("circle")
-			 .attr("cx", function(d) {
-				   console.log("lon= ",d.longitude);
-					 return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[0];
-			 })
-			 .attr("cy", function(d) {
-					 return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[1];
-			 })
-			 .attr("r", 10)
-			 .style("fill", "yellow")
-			 .style("stroke", "gray")
-			 .style("stroke-width", 0.25)
-			 .style("opacity", 0.75)
-			 //.append("title")			//Simple tooltip
-			 //.text(function(d) {
-						//return d.pop + ": Pop. " + formatAsThousands(d.population);
-				//		return d.name; });
-				;
-			}).catch(function(err){
-		console.log("error loading atlantic_storms_2005only",err.name);
-	});
-	console.log("after selectAll circle")
 
 //end of init before end of script
 }
