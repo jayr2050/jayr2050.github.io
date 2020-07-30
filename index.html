@@ -162,6 +162,7 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/co
 		 .enter()
 		 .append("path")
 		 .attr("d", path)
+		 .attr("stroke-width",5)
 		 .style("fill", "green");
 
 
@@ -169,7 +170,7 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/co
 	console.log("error loading countries_oceans json",err.name);
 });
 
-d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/earth-lakes-10km.geo.json").then(function(json) {
+d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/earth-lakes-10km-geo.json").then(function(json) {
 
 	//Bind data and create one path per GeoJSON feature
 	svg.selectAll("path")
