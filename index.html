@@ -37,7 +37,7 @@
 						.attr("height", h);
 
 			//Load in agriculture data
-			d3.csv("https://github.com/jayr2050/jayr2050.github.io/blob/master/us-ag-productivity.csv", function(data) {
+			d3.csv("https://jayr2050.github.io/us-ag-productivity.csv", function(data) {
 
 				//Set input domain for color scale
 				color.domain([
@@ -46,7 +46,7 @@
 				]);
 
 				//Load in GeoJSON data
-				d3.json("https://github.com/jayr2050/jayr2050.github.io/blob/master/us-states.json", function(json) {
+				d3.json("https://jayr2050.github.io/us-states.json", function(json) {
 
 					//Merge the ag. data and GeoJSON
 					//Loop through once for each ag. data value
