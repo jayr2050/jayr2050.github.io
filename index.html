@@ -155,10 +155,10 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/oc
 
 	//Bind data and create one path per GeoJSON feature
 	svg.selectAll("path")
-		 //.data(json.features)
+		 .data(json.features)
 		 .enter()
 		 .append("path")
-		 //.attr("d", path)
+		 .attr("d", path)
 		 .style("fill", "blue");
 
 
