@@ -210,12 +210,13 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atl
 			 .enter()
 			 .append("circle")
 			 .attr("cx", function(d) {
+				   console.log("lon= ",parseFloat(data.longitude));
 					 return projection([parseFloat(data.longitude), parseFloat(data.latitude)])[0];
 			 })
 			 .attr("cy", function(d) {
 					 return projection([parseFloat(data.longitude), parseFloat(data.latitude)])[1];
 			 })
-			 .attr("r", 1000)
+			 .attr("r", 10)
 			 .style("fill", "yellow")
 			 .style("stroke", "gray")
 			 .style("stroke-width", 0.25)
