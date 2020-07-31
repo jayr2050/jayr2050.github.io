@@ -32,20 +32,20 @@
 								//Colors derived from ColorBrewer, by Cynthia Brewer, and included in
 								//https://github.com/d3/d3-scale-chromatic
 
+			d3.select("body")
+				.append("h1")
+				.text("Billion Dollar Extreme Events");
+
+				d3.select("body")
+					.append("href","https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/xtreme.html")
+					.html("Extreme Storm Events");
+
 			//Create SVG element
 			var svg = d3.select("body")
 						.append("svg")
 						//.style("fill","green")
 						.attr("width", w)
 						.attr("height", h);
-
-			svg.select("body")
-				.append("h1")
-				.text("Billion Dollar Extreme Events");
-
-			d3.select("body")
-				.append("href","https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/xtreme.html")
-				.html("Extreme Storm Events");
 
 /*
 			//Load in agriculture data
