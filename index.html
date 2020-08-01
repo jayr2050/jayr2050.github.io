@@ -26,7 +26,7 @@ var svg = d3.select("#my_dataviz")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/billions_frequency.csv", function(data) {
+d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/billions_frequency.csv").then(function(data) {
 // d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv", function(data) {
 
   // List of subgroups = header of the csv files = type of events are the subgroups and data contains frequency of each event per year
@@ -54,13 +54,12 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
   // color palette = one color per subgroup
   var color = d3.scaleOrdinal()
     .domain(subgroups)
-    .range(['#
-	','#377eb8','#4daf4a'])
+    .range(['#','#377eb8','#4daf4a']);
 
   //stack the data? --> stack per subgroup
   var stackedData = d3.stack()
     .keys(subgroups)
-    (data)
+    (data);
 
   // Show the bars
   svg.append("g")
@@ -76,8 +75,9 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
         .attr("x", function(d) { return x(d.data.group); })
         .attr("y", function(d) { return y(d[1]); })
         .attr("height", function(d) { return y(d[0]) - y(d[1]); })
-        .attr("width",x.bandwidth())
-});
+        .attr("width",x.bandwidth());
+}).catch(function(err) {
+    console.log("error reading data_stacked.csv",err.name);
 
 // close init()
 }
