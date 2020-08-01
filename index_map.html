@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		// <title>D3: Setting path fills dynamically to generate a choropleth</title>
+		<script type="text/javascript" src='https://d3js.org/d3.v5.min.js'></script>
+		<style type="text/css">
+			/* No style rules here yet */
+		</style>
+					 '<a href= "https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/billions.html"> Billion Dollar Disasters </a>'
+	</head>
+	<body onload='init()'>
+		<script type="text/javascript">
+		async function init() {
+			document.cookie = 'cross-site-cookie=bar; SameSite=None; Secure';
+			//Width and height
+			var w = 800;
+			var h = 500;
+
+			//Define map projection
+			//var projection = d3.geoAlbersUsa()
+			var projection = d3.geoAlbers()
+								   .translate([w/2, h/2])
+								   .scale([500]);
+
+			//Define path generator
+			var path = d3.geoPath()
+							 .projection(projection);
+
+			//Define quantize scale to sort data values into buckets of color
+			var color = d3.scaleQuantize()
+								.range(["rgb(237,248,233)","rgb(186,228,179)","rgb(116,196,118)","rgb(49,163,84)","rgb(0,109,44)"]);
+								//Colors derived from ColorBrewer, by Cynthia Brewer, and included in
+								//https://github.com/d3/d3-scale-chromatic
+
+			d3.select("body")
+				.append("h1")
+				.text("Billion Dollar Extreme Events");
+
+			//	d3.select("body")
+			//		.append("href","https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/billions.html")
+			//		.html("Extreme Storm Events");
+
+/*
+		var labeldata = canvas.selectAll("text.samples")
+    .data(data)
+    .enter()
+    .append("text")
+    .transition()
+    .delay(1)
+    .duration(1500)
+    .attr("class", "samples")
+    .attr("font-family", "Arial")
+    .attr("font-size", "12px")
+    .on("click", function() { window.open("http://google.com"); }); // when clicked, opens window with google.com
+*/
+			//Create SVG element
+			var svg = d3.select("body")
+						.append("svg")
+						//.style("fill","green")
+						.attr("width", w)
+						.attr("height", h);
+
+/*
+			//Load in agriculture data
+			//d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv", function(data) {
+			d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv").then(function(data) {
+			//d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-ag-productivity.csv", function(data) {
+
+				//Set input domain for color scale
+				color.domain([
+					d3.min(data, function(d) { return d.value; }),
+					d3.max(data, function(d) { return d.value; })
+				]);
+
+	      console.log("after us-ag-productivity.csv");
+				//Load in GeoJSON data
+				d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-states.json").then(function(json) {
+
+					//Merge the ag. data and GeoJSON
+					//Loop through once for each ag. data value
+					for (var i = 0; i < data.length; i++) {
+
+						//Grab state name
+						var dataState = data[i].state;
+
+						//Grab data value, and convert from string to float
+						var dataValue = parseFloat(data[i].value);
+
+						//Find the corresponding state inside the GeoJSON
+						for (var j = 0; j < json.features.length; j++) {
+
+							var jsonState = json.features[j].properties.name;
+
+							if (dataState == jsonState) {
+
+								//Copy the data value into the JSON
+								json.features[j].properties.value = dataValue;
+
+								//Stop looking through the JSON
+								break;
+
+							}
+						}
+					}
+
+					//Bind data and create one path per GeoJSON feature
+					svg.selectAll("path")
+					   .data(json.features)
+					   .enter()
+					   .append("path")
+					   .attr("d", path)
+					   .style("fill", function(d) {
+					   		//Get data value
+					   		var value = d.properties.value;
+
+					   		if (value) {
+					   			//If value exists…
+						   		return color(value);
+					   		} else {
+					   			//If value is undefined…
+						   		return "#ccc";
+					   		}
+					   });
+
+				}).catch(function(){
+					console.log("error loading GeoJSON")
+				});
+
+			}).catch(function(){
+      console.log("error loading us-ag csv");
+});
+
+
+			d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atlantic_storms_2005only.csv").then(function(data) {
+
+				//Set input domain for color scale
+
+			svg.selectAll("circle")
+			       //.data(data)
+			       .enter()
+			       .append("circle")
+			       .attr("cx", function(d) {
+			           return projection([parseFloat(data.longitude), parseFloat(data.latitude)])[0];
+			       })
+			       .attr("cy", function(d) {
+			           return projection([parseFloat(data.longitude), parseFloat(data.latitude)])[1];
+			       })
+			       .attr("r", 5)
+			       .style("fill", "yellow")
+			       .style("stroke", "gray")
+			       .style("stroke-width", 0.25)
+			       .style("opacity", 0.75)
+			       //.append("title")			//Simple tooltip
+			       //.text(function(d) {
+			            //return d.pop + ": Pop. " + formatAsThousands(d.population);
+							//		return d.name; });
+              ;
+						}).catch(function(err){
+					console.log("error loading atlantic_storms_2005only",err.name);
+				});
+}
+*/
+d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/oceans.json").then(function(json) {
+
+	//Bind data and create one path per GeoJSON feature
+	svg.selectAll("path")
+		 .data(json.features)
+		 .enter()
+		 .append("path")
+		 .attr("d", path)
+		 .style("fill", "blue");
+
+
+}).catch(function(err){
+	console.log("error loading oceans json",err.name);
+});
+
+d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/countries_oceans.geojson").then(function(json) {
+
+	//Bind data and create one path per GeoJSON feature
+	svg.selectAll("path")
+		 .data(json.features)
+		 .enter()
+		 .append("path")
+		 .attr("d", path)
+		 .attr("stroke","green")
+		 .attr("stroke-width",2)
+		 .style("fill", "green");
+
+     console.log("in load countries_oceans before load atlantic_storms_2005only...")
+		 d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/atlantic_storms_2005only.csv").then(function(data) {
+
+		 	//Set input domain for color scale
+		     console.log("before selectAll circle");
+				 console.log(projection([parseFloat(data[0].longitude), parseFloat(data[0].latitude)]));
+		 		console.log(data);
+		     svg.selectAll("circle")
+		 			 //.data(data)
+		 			 .enter()
+		 			 .append("circle")
+		 			 .attr("cx", function(d) {
+		 				   console.log("lon= ",d.longitude);
+		 					 return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[0];
+		 			 })
+		 			 .attr("cy", function(d) {
+		 					 return projection([parseFloat(d.longitude), parseFloat(d.latitude)])[1];
+		 			 })
+		 			 .attr("r", 10)
+		 			 .style("fill", "yellow")
+		 			 .style("stroke", "gray")
+		 			 .style("stroke-width", 0.25)
+		 			 .style("opacity", 0.75)
+		 			 //.append("title")			//Simple tooltip
+		 			 //.text(function(d) {
+		 						//return d.pop + ": Pop. " + formatAsThousands(d.population);
+		 				//		return d.name; });
+		 				;
+						console.log("directly after svg selectAll circle...");
+		 			}).catch(function(err){
+		 		console.log("error loading atlantic_storms_2005only",err.name);
+		 	});
+		 	console.log("after selectAll circle");
+
+}).catch(function(err){
+	console.log("error loading countries_oceans json",err.name);
+});
+
+/*
+d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/earth-lakes-10km-geo.json").then(function(json) {
+
+	//Bind data and create one path per GeoJSON feature
+	svg.selectAll("path")
+		 .data(json.features)
+		 .enter()
+		 .append("path")
+		 .attr("d", path)
+		 .style("fill", "blue");
+
+
+}).catch(function(err){
+	console.log("error loading earth-lakes json",err.name);
+});
+*/
+
+/*
+d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us-states.json").then(function(json) {
+	svg.selectAll("path")
+		 .data(json.features)
+		 .enter()
+		 .append("path")
+		 .attr("d", path)
+		 .style("fill", "green");
+}).catch(function(err) {
+	console.log("error loading us-states json",err.name)
+});
+*/
+
+
+
+//end of init before end of script
+/*
+					d3.select("body")
+						.append("p")
+						.text("This is <a href=")
+						.https://www.d3-graph-gallery.com">a link to the Billion Dollar Disasters.</a></p>
+
+						div .html(
+			             '<a href= "http://google.com">' + // The first <a> tag
+			             formatTime(d.date) +
+			             "</a>" +                          // closing </a> tag
+			             "<br/>"  + d.close)
+			             .style("left", (d3.event.pageX) + "px")
+			             .style("top", (d3.event.pageY - 28) + "px");
+			         });
+*/
+
+}
+		</script>
+	</body>
+</html>
