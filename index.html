@@ -2,7 +2,7 @@
 <html lang="en">
 	<head>
 		<meta charset="utf-8">
-		<title>D3: Setting path fills dynamically to generate a choropleth</title>
+		// <title>D3: Setting path fills dynamically to generate a choropleth</title>
 		<script type="text/javascript" src='https://d3js.org/d3.v5.min.js'></script>
 		<style type="text/css">
 			/* No style rules here yet */
@@ -35,6 +35,11 @@
 			d3.select("body")
 				.append("h1")
 				.text("Billion Dollar Extreme Events");
+
+				div .html(
+							 '<a href= "http://google.com">' + // The first <a> tag
+							 "Billion Dollar Disasters" +
+							 "</a>" );                          // closing </a> tag
 
 			//	d3.select("body")
 			//		.append("href","https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/billions.html")
@@ -258,8 +263,22 @@ d3.json("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/us
 
 
 //end of init before end of script
-		      <p>
-					This is <a href="https://www.d3-graph-gallery.com">a link to the Billion Dollar Disasters.</a></p>
+/*
+					d3.select("body")
+						.append("p")
+						.text("This is <a href=")
+						.https://www.d3-graph-gallery.com">a link to the Billion Dollar Disasters.</a></p>
+
+						div .html(
+			             '<a href= "http://google.com">' + // The first <a> tag
+			             formatTime(d.date) +
+			             "</a>" +                          // closing </a> tag
+			             "<br/>"  + d.close)
+			             .style("left", (d3.event.pageX) + "px")
+			             .style("top", (d3.event.pageY - 28) + "px");
+			         });
+*/
+
 }
 		</script>
 	</body>
