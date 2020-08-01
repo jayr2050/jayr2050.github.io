@@ -4,11 +4,14 @@
 //<style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
 
+<script type="text/javascript">
+
+async function init() {
 
 <!-- Create a div where the graph will take place -->
 <div id="billions_bar"></div>
 
-// set the dimensions and margins of the graph
+/* set the dimensions and margins of the graph */
 var margin = {top: 10, right: 30, bottom: 20, left: 50},
     width = 460 - margin.left - margin.right,
     height = 400 - margin.top - margin.bottom;
@@ -74,6 +77,11 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
         .attr("y", function(d) { return y(d[1]); })
         .attr("height", function(d) { return y(d[0]) - y(d[1]); })
         .attr("width",x.bandwidth())
-})
+});
 
+// close init()
+}
 </script>
+
+</body>
+</html>
