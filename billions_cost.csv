@@ -1,9 +1,9 @@
-Year,Drought Cost,Flooding Cost,Freeze Cost,Severe Storm Cost,Tropical Cyclone Cost,Wildfire Cost,Winter Storm Cost,Combined Cost
+Year,“Drought Cost”,“Flooding Cost”,“Freeze Cost”,“Severe Storm Cost”,“Tropical Cyclone Cost”,“Wildfire Cost”,“Winter Storm Cost”,“Combined Cost”
 1980,33.3,2,2.3,0,0,0,0,37.6
 1981,1.2,1.7,0,0,0,0,0,2.9
 1982,2.6,1.8,0,0,0,0,0,4.4
 1983,5.3,7.8,7.9,8.3,0,0,0,29.3
-1984,2.6,,,,0,0,0,2.6
+1984,2.6,0,0,0,0,0,0,2.6
 1985,3.3,9,2.9,2.1,0,0,0,17.3
 1986,4.3,1.3,0,0,0,0,0,5.6
 1988,44.8,0,0,0,0,0,0,44.8
@@ -16,7 +16,7 @@ Year,Drought Cost,Flooding Cost,Freeze Cost,Severe Storm Cost,Tropical Cyclone C
 1995,13.2,1.7,9.4,4.3,0,0,0,28.6
 1996,8.4,3,1.7,5,0,0,0,18.1
 1997,10.9,1.6,0,0,0,0,0,12.5
-1998,4,1.5,12.3,5.6,6,2.2,0,31.6
+1998,4,1.5,12.3,5.6,6,2.2,,31.6
 1999,10.2,3.9,3.2,3,0,0,0,20.3
 2000,7.6,1.4,1.6,1.1,0,0,0,11.7
 2001,12.6,4.6,0,0,0,0,0,17.2
