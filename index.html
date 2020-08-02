@@ -105,11 +105,12 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
       .attr("text-anchor", "end")
       .text(function(d) { return d; });
 	  
-  legend.append("text")
+  svg.append("text")
       .attr("x", margin.left)
       .attr("y", height/2)
       .attr("dy", ".35em")
       .attr("text-anchor", "start")
+	  .attr("transform", "translate(10,0) rotate(-90)")
       .text("Number of Events");
 
 	  
