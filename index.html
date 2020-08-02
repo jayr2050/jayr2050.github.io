@@ -82,7 +82,7 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
         .attr("height", function(d) { return y(d[0]) - y(d[1]); })
         .attr("width",x.bandwidth());
 		
-  var legend = g.selectAll(".legend")
+  var legend = svg.selectAll(".legend")
     .data(data.columns.slice(1).reverse())
     .enter().append("g")
       .attr("class", "legend")
