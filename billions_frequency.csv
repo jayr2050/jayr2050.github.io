@@ -1,4 +1,4 @@
-Year,Drought Cost,Flooding Cost,Freeze Cost,Severe Storm Cost,Tropical Cyclone Cost,Wildfire Cost,Winter Storm Cost,Combined Cost
+Year,“Drought Cost”,“Flooding Cost”,“Freeze Cost”,“Severe Storm Cost”,“Tropical Cyclone Cost”,“Wildfire Cost”,“Winter Storm Cost”,“Combined Cost”
 1980,33.3,2,2.3,0,0,0,0,37.6
 1981,1.2,1.7,0,0,0,0,0,2.9
 1982,2.6,1.8,0,0,0,0,0,4.4
