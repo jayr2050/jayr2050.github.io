@@ -30,10 +30,11 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
 // d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv", function(data) {
 
   // List of subgroups = header of the csv files = type of events are the subgroups and data contains frequency of each event per year
-  var subgroups = data.columns.slice(1)
+  var subgroups = data.columns.slice(1);
+  console.log(subgroups);
 
   // List of groups = species here = value of the first column called group -> I show them on the X axis
-  var groups = d3.map(data, function(d){return(d.group)}).keys()
+  var groups = d3.map(data, function(d){return(d.group)}).keys();
   console.log(groups);
 
   // Add X axis
