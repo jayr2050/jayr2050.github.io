@@ -58,7 +58,7 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
       .range([0, width])
       .padding([0.2])
   svg.append("g")
-    .attr("transform", "translate(0," + height - 20 + ")")
+    .attr("transform", "translate(0," + height + ")")
     .call(d3.axisBottom(x).tickSizeOuter(0));
 
   // Add Y axis
@@ -150,8 +150,8 @@ svg.append("a")
     //.attr("xlink:href", "http://en.wikipedia.org/wiki/"+"Consciousness")
 	.attr("xlink:href", "https://jayr2050.github.io/billions_cost.html")
     .append("rect")  
-    .attr("x", width/2)
-    .attr("y", height)
+    .attr("x", 40)
+    .attr("y", 10)
     .attr("height", 100)
     .attr("width", 200)
     .style("fill", "lightgreen")
