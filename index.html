@@ -146,6 +146,7 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
 
 });
 
+
 // add link 
 var data = ['a', 'b', 'c'];
 
@@ -170,7 +171,8 @@ var data = ['a', 'b', 'c'];
     .append("text")
     .attr({x: 10, y: function(d, i){ return i*15+15; }})
     .text(function(d, i){ return d; });
-           
+ // close init()
+}          
 svg {
   border: solid 1px blue;
 }
@@ -195,8 +197,7 @@ svg {
     .text(function(d, i){ return d; });
 */
 
-// close init()
-}
+
 </script>
 
 </body>
