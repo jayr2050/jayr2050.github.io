@@ -105,7 +105,7 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
       .attr("text-anchor", "end")
       .text(function(d) { return d; });
 
-  var ylegend = svg.selectAll(".myclass")
+/*  var ylegend = svg.selectAll(".myclass")
       .enter().append("g")
 	  .attr("class","myclass")
 	  .attr("transform",
@@ -118,8 +118,16 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
       .attr("dy", ".35em")
       .attr("text-anchor", "end")
       //.text(function(d) { return d; });	  
-      .text("Number of Events");
-
+      .text("Number of Events"); */
+	  
+  svg.append("g")
+    .append("text")
+	.attr("x", width/2)
+    .attr("y", top.margin + 50)
+    .attr("dy", ".71em")
+    .attr("transform", "rotate(-90)")
+    .style("text-anchor", "end")
+    .text("Billion Dollar Disasters");
 	  
 }).catch(function(err) {
     console.log("error reading data_stacked.csv",err.name);
