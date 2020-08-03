@@ -1,26 +1,33 @@
 <!DOCTYPE html>
 <meta charset="utf-8">
 <script src='https://d3js.org/d3.v5.min.js'></script>
-//<style> circle {fill: lightblue; stroke: black;} </style>
+<style> circle {fill: lightblue; stroke: black;} </style>
 <body onload='init()'>
-<div id="container">
-    <h1>Headline…</h1>
-    <p>Explanatory text…</p>
-    <div id="chartContainer">…</div>
-    <div id="footer">…</div>
-</div>
+
 <script type="text/javascript">
 
 async function init() {
 
 <!-- Create a div where the graph will take place -->
 //<div id="billions_bar" /div>
-
+/*<div id="container">
+    <h1>Headline…</h1>
+    <p>Explanatory text…</p>
+    <div id="chartContainer">…</div>
+    <div id="footer">…</div>
+</div> */
 /* set the dimensions and margins of the graph */
 var margin = {top: 10, right: 30, bottom: 20, left: 50},
     width = 1200 - margin.left - margin.right,
     height = 800 - margin.top - margin.bottom;
-
+	
+// append header
+d3.select("body")
+	.append('head')
+	.attr('x',width/2)
+	.attr('y',height/4)
+	.text('Billion Dollar Disasters 1980 - 2020');
+	
 // append the svg object to the body of the page
 var svg = d3.select("body")
   .append("svg")
