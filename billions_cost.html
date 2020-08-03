@@ -26,7 +26,7 @@ d3.select("body")
 	.append('h1')
 	.attr('x',width/2)
 	.attr('y',height/4)
-	.text('Billion Dollar Disasters 1980 - 2020');
+	.text('Billion Dollar Disasters COSTS 1980 - 2020');
 	
 // append the svg object to the body of the page
 var svg = d3.select("body")
@@ -38,7 +38,7 @@ var svg = d3.select("body")
           "translate(" + margin.left + "," + margin.top + ")");
 
 // Parse the Data
-d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/billions_num_per_year.csv").then(function(data) {
+d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/billions_cost.csv").then(function(data) {
 //d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv").then(function(data) {
 // d3.csv("https://raw.githubusercontent.com/holtzy/D3-graph-gallery/master/DATA/data_stacked.csv", function(data) {
 
@@ -144,31 +144,8 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
 }).catch(function(err) {
     console.log("error reading data_stacked.csv",err.name);
 
-});
-
-// add link 
-var data = ['a', 'b', 'c'];
-
-var svg = d3.select("body").append("svg")
-    .attr({
-        xmlns: "http://www.w3.org/2000/svg",
-        xlink: "http://www.w3.org/1999/xlink",
-        width: 100, 
-        height: 300
-    })
-    .selectAll("a")
-    .data(data)
-    .enter().append("a")
-    .attr({"xlink:href": "#"})
-    .on("mouseover", function(d, i){ 
-        d3.select(this) 
-            .attr({"xlink:href": "http://example.com/" + d});
-    })
-    .append("text")
-    .attr({x: 10, y: function(d, i){ return i*15+15; }})
-    .text(function(d, i){ return d; });
-
 // close init()
+});
 }
 </script>
 
