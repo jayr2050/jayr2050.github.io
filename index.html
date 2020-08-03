@@ -58,7 +58,7 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
       .range([0, width])
       .padding([0.2])
   svg.append("g")
-    .attr("transform", "translate(0," + height + ")")
+    .attr("transform", "translate(0," + height - 20 + ")")
     .call(d3.axisBottom(x).tickSizeOuter(0));
 
   // Add Y axis
