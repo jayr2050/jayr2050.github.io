@@ -104,21 +104,13 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
       .attr("dy", ".35em")
       .attr("text-anchor", "end")
       .text(function(d) { return d; });
-	  
-  var yaxisname = svg.selectAll(".yaxisName")
-      .data([0])
-	  .enter().append("g")
-	  .attr("class","yaxisName")
-	  .attr("transform", "translate(10,0) rotate(-90)")
-	  .style("font", "10px sans-serif");
-	  
-	yaxisName.append("text")
-      .attr("x", margin.left)
+
+  legend.append("text")
+      .attr("x", width/10)
       .attr("y", height/2)
       .attr("dy", ".35em")
-      .attr("text-anchor", "start")
-	  //.attr("transform", "translate(10,0) rotate(-90)")
-	  //.attr("transform", "translate(0,0) rotate(90)")
+      .attr("text-anchor", "end")
+      .text(function(d) { return d; });	  
       .text("Number of Events");
 
 	  
