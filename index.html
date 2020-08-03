@@ -105,7 +105,14 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
       .attr("text-anchor", "end")
       .text(function(d) { return d; });
 
-  legend.append("text")
+  var ylegend = svg.selectAll(".myclass")
+      .enter().append("g")
+	  .attr("class","myclass")
+	  .attr("transform",
+          "translate(" + margin.left + "," + margin.top + ")")
+	  .style("font", "10px sans-serif");
+	  
+	  ylegend.append("text")
       .attr("x", width/10)
       .attr("y", height/2)
       .attr("dy", ".35em")
