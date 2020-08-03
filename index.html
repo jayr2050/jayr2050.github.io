@@ -149,7 +149,33 @@ d3.csv("https://raw.githubusercontent.com/jayr2050/jayr2050.github.io/master/bil
 // add link 
 var data = ['a', 'b', 'c'];
 
-var svg = d3.select("body").append("svg")
+ var innerSVG = d3.select("body").append("svg")
+      .attr('width',400)
+      .attr('height',400)
+      .attr({
+        xmlns: "http://www.w3.org/2000/svg",
+        xlink: "http://www.w3.org/1999/xlink",
+        width: 100, 
+        height: 300
+    });
+	
+	innerSVG.selectAll("a")
+    .data(data)
+    .enter().append("a")
+    .attr({"xlink:href": "#"})
+    .on("mouseover", function(d, i){ 
+        d3.select(this) 
+            .attr({"xlink:href": "http://example.com/" + d});
+    })
+    .append("text")
+    .attr({x: 10, y: function(d, i){ return i*15+15; }})
+    .text(function(d, i){ return d; });
+           
+svg {
+  border: solid 1px blue;
+}
+/*
+  var svg = d3.select("body").append("svg")
     .attr({
         xmlns: "http://www.w3.org/2000/svg",
         xlink: "http://www.w3.org/1999/xlink",
@@ -167,6 +193,7 @@ var svg = d3.select("body").append("svg")
     .append("text")
     .attr({x: 10, y: function(d, i){ return i*15+15; }})
     .text(function(d, i){ return d; });
+*/
 
 // close init()
 }
